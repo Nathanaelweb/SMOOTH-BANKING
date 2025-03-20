@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Bank - Your Reliable Banking Experience</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div id="home" class="section">
+            <h1>Welcome to Smooth Bank</h1>
+            <h2>Your balance: $<span id="balance">0</span></h2>
+            <p>Enjoy a seamless banking experience with us. Deposit, withdraw, or transfer funds easily.</p>
+            <button onclick="goToHome()">Back to Home</button> <!-- Back to Home button -->
+        </div>
+
+       <!-- Navigation Links below Home Section -->
+<div class="nav-links">
+    <ul>
+        <li>
+            <a href="javascript:void(0);" onclick="showSection('home')">
+                <div class="nav-item">
+                    <img src="172-1721548_computer-icons-house-home-page-home-icon-green-png-removebg-preview.png" alt="Home" class="nav-icon">
+                    <span>Home</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" onclick="showSection('transactions')">
+                <div class="nav-item">
+                    <img src="9756772-removebg-preview.png" alt="Transactions" class="nav-icon">
+                    <span>Transactions</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" onclick="showSection('transfer')">
+                <div class="nav-item">
+                    <img src="7468521-removebg-preview.png" alt="Transfer" class="nav-icon">
+                    <span>Transfer</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" onclick="showSection('account')">
+                <div class="nav-item">
+                    <img src="free-user-icon-3297-thumb-removebg-preview.png" alt="Account" class="nav-icon">
+                    <span>Account</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" onclick="showSection('withdraw-section')">
+                <div class="nav-item">
+                    <img src="5704644-removebg-preview.png" alt="Withdraw" class="nav-icon">
+                    <span>Withdraw</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" onclick="showSection('increase-balance')">
+                <div class="nav-item">
+                    <img src="green-money-bag-solid-icon-vector-43827714-removebg-preview.png" alt="Add Balance" class="nav-icon">
+                    <span>Add Balance</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        <!-- Increase Balance Section -->
+        <div id="increase-balance" class="section" style="display:none;">
+            <h3>Increase Your Balance</h3>
+            <input type="number" id="increase-amount" placeholder="Enter amount to add">
+            <button onclick="increaseBalance()">Increase Balance</button>
+            <br><br>
+            <button onclick="goToHome()">Back to Home</button> <!-- Back to Home button -->
+        </div>
+
+        <!-- Transactions Section -->
+        <div id="transactions" class="section" style="display:none;">
+            <h2>Transaction History</h2>
+            <ul id="transaction-history">
+                <!-- Transactions will be listed here -->
+            </ul>
+            <br><br>
+            <button onclick="goToHome()">Back to Home</button> <!-- Back to Home button -->
+        </div>
+
+        <!-- Transfer Section -->
+        <div id="transfer" class="section" style="display:none;">
+            <h2>Transfer Money</h2>
+            <input type="text" id="bank-name" placeholder="Bank Name">
+            <input type="text" id="account-number" placeholder="Account Number">
+            <input type="number" id="transfer-amount" placeholder="Amount">
+            <button onclick="transfer()">Transfer</button>
+            <br><br>
+            <button onclick="goToHome()">Back to Home</button> <!-- Back to Home button -->
+        </div>
+
+        <!-- Account Settings Section -->
+        <div id="account" class="section" style="display:none;">
+            <h2>Account Settings</h2>
+            <p>Manage your account settings here. You can change your password, update your details, etc.</p>
+            <button onclick="clearBalance()">Clear Balance</button>
+            <br><br>
+            <button onclick="goToHome()">Back to Home</button> <!-- Back to Home button -->
+        </div>
+
+        <!-- Withdraw Section -->
+        <div id="withdraw-section" class="section" style="display:none;">
+            <h3>Withdraw Money</h3>
+            <label for="withdraw-amount">Amount to Withdraw:</label>
+            <input type="number" id="withdraw-amount" placeholder="Enter amount" />
+            <button onclick="withdraw()">Withdraw</button>
+            <br><br>
+            <button onclick="goToHome()">Back to Home</button> <!-- Back to Home button -->
+        </div>
+
+        <!-- Payment Receipt Modal -->
+        <div id="receipt-modal" class="modal">
+            <div class="modal-content">
+                <h2>Payment Receipt</h2>
+                <p><strong>Bank Name:</strong> <span id="receipt-bank"></span></p>
+                <p><strong>Account Number:</strong> <span id="receipt-account"></span></p>
+                <p><strong>Amount:</strong> $<span id="receipt-amount"></span></p>
+                <button class="close" onclick="closeReceipt()">Close</button>
+            </div>
+        </div>
+
+        <!-- Withdrawal Receipt Modal -->
+        <div id="withdrawal-receipt-modal" style="display: none;">
+            <div id="receipt-content">
+                <h4>Withdrawal Receipt</h4>
+                <p>Amount: $<span id="receipt-amount"></span></p>
+                <p>Transaction Successful</p>
+                <button onclick="closeReceipt()">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

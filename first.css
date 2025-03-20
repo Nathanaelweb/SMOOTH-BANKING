@@ -1,0 +1,442 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url('smooth banking.JPG'); /* Corrected image URL syntax */
+    background-size: cover; /* Ensures image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+}
+
+/* Main container */
+.container {
+    padding: 20px;
+}
+
+/* Section Styles */
+.section {
+    min-height: 100vh; /* Full viewport height for each section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    opacity: 0; /* Hide initially */
+    transform: translateY(50px); /* Move sections below initially */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Active class to trigger animation */
+.section.active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide up */
+}
+
+/* Fade-in left effect */
+.section.fade-in-left {
+    transform: translateX(-50px);
+}
+
+.section.fade-in-left.active {
+    transform: translateX(0);
+}
+
+/* Fade-in right effect */
+.section.fade-in-right {
+    transform: translateX(50px);
+}
+
+.section.fade-in-right.active {
+    transform: translateX(0);
+}
+
+
+/* Section Titles */
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: gold; /* Updated color */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.5);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* h2 Styling */
+h2 {
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px 20px;
+    color: #006400; /* Dark Green */
+    border-radius: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling transition */
+    animation: fadeInUp 1s ease-in-out;
+}
+
+h2:hover {
+    transform: scale(1.2); /* Scaling effect on hover */
+    box-shadow: 0 0 15px rgba(0, 100, 0, 0.3);
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.3em;
+    line-height: 1.8em;
+    color: #333;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* List Styling */
+ul {
+    font-size: 1.2em;
+    color: #333;
+    padding-left: 20px;
+    list-style: none;
+}
+
+ul li   {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-left: 5px solid #006400;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    opacity: 0;
+    animation: slideInLeft 0.8s ease-in-out forwards;
+    color: rgb(7, 82, 7);
+    font-style: italic;
+    font-weight: bold;
+}
+
+ul li:hover {
+    transform: translateX(10px);
+    background: #baf7ba;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#section2 ul{
+    color: white;
+}
+
+/* Background Colors for each Section */
+#section1, #section3 {
+    background-color: #ffffff; /* White background */
+    color: #006400; /* Dark Green text */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* Align the image and content side by side */
+    padding: 20px;
+}
+
+#section2, #section4 {
+    background-color: #006400; /* Dark Green background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* Align the image and content side by side */
+    padding: 20px;
+}
+
+/* Content Adjustments */
+#section1 .content,
+#section2 .content,
+#section3 .content {
+    max-width: 60%;  /* Limit the content width */
+}
+
+#section1 img,
+#section2 img,
+#section3 img,
+#section4 img {
+    max-width: 35%;  /* Set the image width */
+    height: auto;
+    object-fit: cover;
+}
+
+/* Section visibility and animations */
+.section.visible {
+    opacity: 1;
+    transform: translateY(0); /* When visible, return to normal position */
+}
+
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optional: Add a shadow effect to the header */
+h1, h2 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframes for fade-up animation */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for slide-up animation */
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#section4  p{
+    color: white;
+    padding: 10px 10px;
+}
+/* Use the fade-up animation for the first section */
+#section1 {
+    animation: fadeUp 1s forwards;
+}
+
+/* Use the slide-up animation for the second section */
+#section2 {
+    animation: slideUp 1s forwards;
+}
+
+/* Use fade-up animation for the third section */
+#section3 {
+    animation: fadeUp 1s forwards;
+}
+
+/* Use slide-up animation for the fourth section */
+#section4 {
+    animation: slideUp 1s forwards;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* On small screens, make the content stack vertically */
+    .section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #section1 .content,
+    #section2 .content,
+    #section3 .content {
+        max-width: 100%; /* Allow content to take full width on small screens */
+    }
+
+    /* Make the image size smaller on small screens */
+    #section1 img,
+    #section2 img,
+    #section3 img,
+    #section4 img {
+        max-width: 80%; /* Image should be smaller on mobile */
+        margin-top: 20px; /* Add some space between text and image */
+    }
+
+    /* Center the text content */
+    #section1 h1, #section2 h1, #section3 h1, #section4 h1 {
+        font-size: 2rem; /* Make headings smaller */
+    }
+
+    #section1 p, #section2 p, #section3 p, #section4 p {
+        font-size: 1.1rem; /* Smaller font size for paragraphs */
+    }
+
+    ul {
+        font-size: 1rem; /* Adjust font size of list items */
+    }
+}
+
+@media (max-width: 480px) {
+    #section1 h1, #section2 h1, #section3 h1, #section4 h1 {
+        font-size: 1.5rem; /* Make headings even smaller */
+    }
+
+    #section1 p, #section2 p, #section3 p, #section4 p {
+        font-size: 0.9rem; /* Reduce paragraph font size */
+    }
+}
+/* Contact Details */
+.contact-details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details .contact-box,h2 {
+    background: linear-gradient(135deg, #ffffff, #dfe6f1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.contact-details .contact-box:hover, 
+.contact-details h2:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-details .icon {
+    width: 25px;
+    height: 25px;
+}
+
+.contact-details p {
+    font-size: 1rem;
+    color: #000;
+    margin: 0;
+}
+.contact-details a {
+    color: #260149;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+.contact-details h2{
+    color: #00014d;
+  align-items: center;
+  justify-content: center;
+}
+#section1,#section3{
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f9f9f9;
+   
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    opacity: 0;
+    animation: slideInLeft 0.8s ease-in-out forwards;
+    color: rgb(7, 82, 7);
+    font-style: italic;
+    font-weight: bold;
+}
+#section3:hover{
+    transform: translateX(10px);
+    background: #cfeecf;
+}
+#section1:hover{
+    transform: translateX(10px);
+    background: #cfeecf;
+}
+/* Floating & Movable Translation Widget */
+#google_translate_element {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    cursor: grab; /* Change cursor to indicate movability */
+}
+
+/* When dragging */
+#google_translate_element:active {
+    cursor: grabbing;
+}
+
+/* Hover Effect */
+#google_translate_element:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Google Translate Dropdown Styling */
+.goog-te-combo {
+    background: white;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hide Google Branding */
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+/* Make the translator draggable */
+.draggable {
+    cursor: grab;
+}
+.tor p{
+    background-color: #003800;
+    color: white;
+    padding: 10px 10px ;
+}
+.tor{
+    align-items: center;
+    justify-content: center;
+}

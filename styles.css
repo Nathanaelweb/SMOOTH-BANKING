@@ -1,0 +1,337 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #24ff2f, #00630d);
+    color: #fff;
+    padding: 30px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
+/* Main content area adjusted for the sidebar at the bottom */
+.main-content {
+    margin-bottom: 70px; /* Leave space for the sidebar */
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    flex-grow: 1;
+}
+
+/* Section Styles */
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.section {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+    color: rgb(9, 112, 0);
+}
+
+#home {
+    display: block;
+}
+
+h1, h2,P {
+    color: rgb(33, 116, 0);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.6em;
+    color: #000000;
+   font-weight: bold;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    background: rgb(0, 163, 0);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #006d2a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus {
+    border: 1px solid #227700;
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+li:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* Modal styles for payment receipt */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding-top: 100px;
+    animation: fadeInModal 0.5s ease-in-out;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.modal h2 {
+    color: #007413;
+    font-size: 1.6em;
+}
+
+button.close {
+    background: #1ba300;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+button.close:hover {
+    background: #0a5200;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Increase Balance Section Styles */
+.increase-balance {
+    margin-top: 20px;
+}
+
+.increase-balance input {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.increase-balance button {
+    padding: 12px;
+    border: none;
+    background: #27ae60;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.increase-balance button:hover {
+    background-color: #2ecc71;
+}
+
+/* Show/hide sections */
+.section {
+    display: none;
+}
+
+/* Mobile and Tablet Responsiveness */
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .sidebar .logo h2 {
+        font-size: 1.8em;
+    }
+
+    .sidebar .nav-links ul li {
+        padding: 10px 15px;
+    }
+
+    .main-content {
+        margin-bottom: 0;
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    button, input {
+        width: 100%;
+    }
+
+    .sidebar .nav-links ul li a {
+        font-size: 1.1em;
+    }
+
+    /* Increase Balance Section Styles */
+    .increase-balance input {
+        width: 90%;
+        margin-right: 0;
+    }
+}
+
+/* Sidebar Animation for Mobile */
+.sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+/* When Sidebar is Collapsed */
+.sidebar.collapsed {
+    transform: translateX(-250px); /* Hide the sidebar */
+}
+
+/* Main content area when sidebar is collapsed */
+.main-content {
+    margin-bottom: 70px; /* Adjust for bottom sidebar */
+    transition: margin-left 0.3s ease;
+}
+
+/* Section Styles */
+.section {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+    color: black;
+}
+
+#home {
+    display: block; /* Display the default section */
+}
+/* Styling for navigation links */
+.nav-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav-links li {
+    width: 30%;  /* Each item will take 30% of the container */
+    text-align: center;
+    margin: 10px 0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;  /* Align image and text vertically */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;  /* Set to the desired color */
+}
+
+.nav-icon {
+    width: 80px;  /* Set the width of the icon */
+    height: 50px; /* Set the height of the icon */
+    margin-bottom: 10px;  /* Space between the image and text */
+}
+
+.nav-links span {
+    font-size: 14px;  /* Set font size for the text below the icon */
+    color: #333;  /* Text color */
+}
+
+.nav-links a:hover {
+    color: #007BFF;
+}
+
+.nav-links a:hover .nav-icon {
+    filter: brightness(1.5);  /* Slight brightness increase on hover */
+}
+.nav-links span{
+    color: #008807;
+    font-weight: bold;
+}
+.nav-links span:hover{
+color: #002e06;
+}
